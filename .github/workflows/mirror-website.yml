@@ -22,11 +22,14 @@ jobs:
           --page-requisites \
           --no-parent \
           --verbose \
-          --wait 1 \
+          --wait=5 \
+          --random-wait \
+          --user-agent="Mozilla/5.0" \
           --retry-connrefused \
           --tries 3 \
           --timeout 30 \
           --waitretry 10 \
+          --no-clobber \
           https://www.ronperrier.net || exit 0
         
     - name: Deploy to GitHub Pages
