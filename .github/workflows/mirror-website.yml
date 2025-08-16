@@ -20,7 +20,9 @@ jobs:
           --convert-links \
           --adjust-extension \
           --page-requisites \
-          --no-parent https://www.ronperrier.net \
+          --no-parent \
+          --verbose \
+          https://www.ronperrier.net \
           -o public
         
     - name: Deploy to GitHub Pages
