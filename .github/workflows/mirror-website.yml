@@ -22,6 +22,7 @@ jobs:
           --page-requisites \
           --no-parent \
           --verbose \
+          --wait 1 \
           https://www.ronperrier.net \
         
     - name: Deploy to GitHub Pages
