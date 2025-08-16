@@ -1,0 +1,30 @@
+name: Mirror www.ronperrier.net
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Mirror website
+      run: |
+        wget \
+          --mirror \
+          --convert-links \
+          --adjust-extension \
+          --page-requisites \
+          --no-parent https://www.ronperrier.net \
+          -o public
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
