@@ -23,6 +23,10 @@ jobs:
           --no-parent \
           --verbose \
           --wait 1 \
+          --retry-connrefused \
+          --tries 3 \
+          --timeout 30 \
+          --waitretry 10 \
           https://www.ronperrier.net || exit 0
         
     - name: Deploy to GitHub Pages
